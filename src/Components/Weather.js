@@ -17,6 +17,10 @@ const Weather = () => {
         setCity(event.target.value);
     }
 
+    function onFormSubmit(e) {
+        e.preventDefault();
+    }
+
     async function fetchData() {
         try {
             let response = await fetch(url);
@@ -35,12 +39,12 @@ const Weather = () => {
     }
   return (
     <div className='container'>
-        <div className='city'>
-            <input type='text' value={city} onChange={handleOnChange} placeholder='Enter any city name'></input>
-            <button onClick={() => fetchData()}>
-                <FaSearch></FaSearch>
-            </button>
-        </div>
+            <form onSubmit={onFormSubmit} className='city'>
+                <input type='text' value={city} onChange={handleOnChange} placeholder='Enter any city name'></input>
+                <button type='submit' onClick={() => fetchData()}>
+                    <FaSearch></FaSearch>
+                </button>
+            </form>
 
         {
             error && <p className='error-message'>{error}</p>
