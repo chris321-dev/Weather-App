@@ -167,14 +167,21 @@ body {
 
 
 @media (max-width: 530px) {
+
     body {
         background: #548cbbea;
+    }
+    .city {
+        padding-bottom: 30px;
     }
     .container {
         margin-top: 0px;
         width: 100%;
         height: 100%;
         border-radius: 0px;
+        backdrop-filter: none;
+        background-color: none;
+        border: none;
     }
   }
 
